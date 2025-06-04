@@ -9,10 +9,16 @@ namespace Laboratorio_Loteria
     public class JuegoSemanal
     {
         private List<VentaSemanal> ventas = new List<VentaSemanal>();
+        private HashSet<string> clientesRegistrados = new HashSet<string>();
 
         public void AgregarVenta(VentaSemanal venta)
         {
+            if (clientesRegistrados.Contains(venta.NombreCliente.ToLower()))
+            {
+                throw new ArgumentException($"El cliente {venta.NombreCliente} ya tiene una venta registrada.");
+            }
             ventas.Add(venta);
+            clientesRegistrados.Add(venta.NombreCliente.ToLower());
         }
 
         public List<(string nombre, decimal premio)> RealizarSorteo()

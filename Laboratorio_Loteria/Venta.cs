@@ -8,7 +8,7 @@ namespace Laboratorio_Loteria
 {
     public abstract class Venta
     {
-        public string NombreCliente { get; set; }
+        public string NombreCliente { get; protected set; }
     }
 
 }

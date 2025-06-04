@@ -8,15 +8,15 @@ namespace Laboratorio_Loteria
 {
     public class VentaDiaria : Venta
     {
-        public int[] Numeros { get; set; } = new int[5];
+        public int[] Numeros { get; private set; }
 
         public VentaDiaria(string nombre, int[] numeros)
         {
-            if (numeros.Length != 5)
-                throw new ArgumentException("Deben ser exactamente 5 números");
+            if (string.IsNullOrWhiteSpace(nombre))
+                throw new ArgumentException("El nombre del cliente no puede estar vacío.");
 
             NombreCliente = nombre;
-            Numeros = numeros;
+            Numeros = numeros ?? throw new ArgumentNullException(nameof(numeros));
         }
     }
 }

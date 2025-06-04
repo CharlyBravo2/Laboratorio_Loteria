@@ -82,6 +82,10 @@ namespace Laboratorio_Loteria
                 MessageBox.Show("Venta diaria registrada con éxito!");
                 LimpiarControlesDiario();
             }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message, "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error: {ex.Message}");
@@ -123,6 +127,10 @@ namespace Laboratorio_Loteria
                 MessageBox.Show("Venta semanal registrada con éxito!");
                 LimpiarControlesSemanal();
             }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message, "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error: {ex.Message}");
@@ -151,6 +159,10 @@ namespace Laboratorio_Loteria
 
                 MessageBox.Show("Venta mensual registrada con éxito!");
                 LimpiarControlesMensual();
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message, "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (Exception ex)
             {
@@ -252,5 +264,6 @@ namespace Laboratorio_Loteria
             txtNombreMensual.Clear();
             txtNumeroMensual.Clear();
         }
+
     }
 }
